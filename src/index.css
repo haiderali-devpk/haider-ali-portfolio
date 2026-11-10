@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: the .dark class on <html> switches the theme.
+   Theme choice is stored in localStorage ('haider-portfolio-theme') and
+   falls back to prefers-color-scheme on first visit (see useTheme). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Haider Ali Portfolio v2 — Palette #4 Navy & Coral (final, 2026-11-10)
+   Dark #0c1e3e · Primary #2563eb · Accent #fb7185 · Light #f8fafc */
+@theme {
+  --color-navy: #0c1e3e;
+  --color-navy-deep: #081226;
+  --color-navy-soft: #16305e;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-soft: #dbeafe;
+  --color-coral: #fb7185;
+  --color-coral-dark: #e11d48;
+  --color-coral-soft: #ffe4e6;
+  --color-light: #f8fafc;
+  --color-ink: #0f172a;
+  --color-muted: #475569;
+  --color-border: #e2e8f0;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-light);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark body {
+  background: var(--color-navy-deep);
+  color: var(--color-light);
+}
+
+/* Animated hero gradient — slow drift of navy / blue / coral glows.
+   Subtle and professional; disabled for reduced-motion visitors. */
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%, 100% 50%, 0% 50%; }
+  50% { background-position: 100% 50%, 0% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 100% 50%, 0% 50%; }
+}
+.hero-gradient {
+  background:
+    radial-gradient(900px 520px at 85% 8%, rgba(37, 99, 235, 0.55), transparent 60%),
+    radial-gradient(720px 460px at 8% 92%, rgba(251, 113, 133, 0.30), transparent 60%),
+    linear-gradient(120deg, #0c1e3e, #081226 45%, #16305e);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: gradient-pan 18s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+::selection {
+  background: var(--color-coral);
+  color: #fff;
+}
+
+/* Skills ticker — continuous horizontal scroll */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 28s linear infinite;
+}
+
+/* Typing caret */
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.caret {
+  display: inline-block;
+  color: var(--color-coral);
+  animation: caret-blink 0.9s step-end infinite;
+}
+
+/* Loader progress bar — fills in ~0.95s */
+@keyframes load-fill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.loader-bar-fill {
+  animation: load-fill 0.95s ease forwards;
+}
