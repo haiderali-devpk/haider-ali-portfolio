@@ -1,27 +1,8 @@
-# Haider Ali — Portfolio (v2)
+# Haider Ali — Portfolio
 
 Frontend developer portfolio for **Haider Ali**, rebuilt with a new look:
 **Palette #4 Navy & Coral** — Dark `#0c1e3e`, Primary `#2563eb`,
 Accent `#fb7185`, Light `#f8fafc`.
-
-## Tech stack
-
-| Technology | Purpose |
-| --- | --- |
-| React.js | Frontend |
-| Tailwind CSS | Styling |
-| Framer Motion | Animations |
-| Lucide Icons | Icons |
-| Vite | Build tool |
-
-## Run it
-
-```bash
-npm install
-npm run dev      # local development server
-npm run build    # production build (outputs to dist/)
-npm run preview  # preview the production build
-```
 
 ## Contact form
 
@@ -31,9 +12,6 @@ form POSTs to `https://formsubmit.co/haiderali646450@gmail.com` with
 `_subject="New message from portfolio"`, `_captcha="false"` and
 `_template="table"`, and shows a success message after sending.
 
-**Important — one-time activation:** the first submission triggers an
-activation email to haiderali646450@gmail.com. Click the activation link
-in the inbox — after that, all form messages will arrive at that email.
 
 ## Sections
 
@@ -61,11 +39,5 @@ two-column footer.
   `public/haider-ali-cv.pdf` (one-page CV, built from Haider Ali's details).
 - **GitHub & LinkedIn** — prominent buttons in the hero and Contact
   section; footer keeps LinkedIn exactly once.
-
-## Notes
-
-- All website text is in English.
-- The hero photo is `src/assets/haider-ali.png`; project screenshots are
-  the `project-*.webp` files in `src/assets/`.
 - Loader: full-screen navy loader, "HA." + "Haider Ali" + "Frontend
   Developer", fades after ~1s; Esc or a click dismisses it.
